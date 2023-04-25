@@ -6,42 +6,49 @@ The three types of edits that can be performed on strings are:
 * replace a character.
 """
 
-def is_one_away(str1, str2):
-    """ insert and delete r basically the same thing."""
-    big_str, small_str = ((str1, str2) if len(str1) > len(str2) else (str2, str1))
-    print(big_str, small_str)
+def one_away(str1, str2):
+    """go from front-->back and then back--> front, looking for differences."""
 
-    d_index=-1
+    # figure out which string is bigger and smaller
+    if len(str1) >= len(str2):
+        big_str, small_str  = list(str1), list(str2)
+    else:
+    	big_str, small_str = list(str2), list(str1)
 
+    # remove matching items from front of strings
     for i in range(len(small_str)):
-        print(i, small_str[i], big_str[i])
-        if small_str[i] == big_str[i]:
-    	    small_str.pop(i)
-    	    big_str.pop(i)
+        if small_str[0] == big_str[0]:
+            small_str.pop(0)
+            big_str.pop(0)
         else:
-            d_index=i
             break
 
+    # remove matching items from back of strings
     for i in range(-1, -len(small_str)-1, -1):
-        print(i, small_str[i], big_str[i])
+        if small_str[-1] == big_str[-1]:
+            small_str.pop(-1)
+            big_str.pop(-1)
+        else:
+            break
+
+    # at the end, the big string should have at most 1 item, and the small string 0
+    return len(big_str)<=1 && len(small_str)==0
 
 
 def is_one_away_simple(str1, str2):
+    """Separate cases for equal length strings and the others"""
     if len(str1)==len(str2):
-    	d_count=0
-    	for i in range(len(str1)):
-    		if str1[i] != str2[i]:
-    			d_count+=1
-    	return True if d_count <= 1 else False
-    
-    big_str, small_str = ((str1, str2) if len(str1) > len(str2) else (str2, str1))
-    
-
-    
+        d_count=0
+        for i in range(len(str1)):
+            if str1[i] != str2[i]:
+                d_count+=1
+        return True if d_count <= 1 else False
+    return is_one_away(str1, str2)
 
 
-def one_away(str1, str2):
-	# quick optimization -- diff between string len is <=1
-	if abs(len(str1)-len(str2)) > 1:
-		return False
+
+def one_away_quick_opt(str1, str2):
+    # quick optimization -- diff between string len is <=1
+    if abs(len(str1)-len(str2)) > 1:
+        return False
 
