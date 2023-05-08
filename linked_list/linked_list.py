@@ -101,6 +101,7 @@ class LinkedList:
         raise Exception("Desired node ($s) not found..." % target_node_data)
 
 
+"""
 l=LinkedList(nodes=['a', 33, False])
 l.insert_last(Node('jjj'))
 l.insert_first(Node(9))
@@ -112,6 +113,7 @@ l.insert_after('jjj', Node('afterjjj'))
 l.insert_before('jjj', Node('b4jjj'))
 
 l.remove_first()
+"""
 
 
 
