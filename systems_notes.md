@@ -1109,6 +1109,18 @@ Check whether client and server firewalls permit SSH.
 
 Increase timeout value for SSH command.
 
+### How can I check shared libraries/object dependencies of a binary?
+
+To see object dependencies of binary `ls`: `ldd /bin/ls`
+
+To find unused object dependencies: `ldd -u <file>`
+
+To perform relocations and report any missing objects from binary: `ldd -d <file>`
+
+To perform relocations and report any missing objects **and** functions from binary: `ldd -r <file>`
+
+This can be useful if you need to know what dependencies are missing from binaries, as well as identifying and removing any unused dependencies
+
 ### What is DHCP?
 
 DHCP is **D**ynamic **H**ost **C**onfiguration **P**rotocol. It emables networks to assign IP addresses dynamically (without a network administrator).
