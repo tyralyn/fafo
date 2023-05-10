@@ -32,6 +32,8 @@
 #
 # second strategy: don't make the dictionary manually
 
+import string
+
 def caesar_cipher_basic(text, n):
 	lowercase = range(ord('a'), ord('z') + 1)
 	uppercase = range(ord('A'), ord('Z') + 1)
@@ -53,7 +55,7 @@ def caesar_cipher_basic(text, n):
 			cipher+=c
 	return cipher
 
-def cesar_cipher(text, n):
+def cesar_cipher_translate(text, n):
 	d_lower={ ord('a') + i: ord('a') + (i + n )%26 for i in range(0,26)}
 	d_upper={ ord('A') + i: ord('A') + (i + n )%26 for i in range(0,26)}
 
@@ -61,6 +63,13 @@ def cesar_cipher(text, n):
 
 	return text.translate(d)
 
+def caesar_cipher(text, n):
+	lowercase = string.ascii_lowercase
+	uppercase = string.ascii_uppercase
+
+	d = dict(zip(lowercase+uppercase, lowercase[n:]+lowercase[:n]+uppercase[:n]+uppercase[n:]))
+
+	return text.translate(str.maketrans(d))
 
 
 

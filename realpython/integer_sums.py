@@ -12,7 +12,7 @@
 # Q: is this inclusive?
 # A: yes
 
-def integer_sum(number):
+def integer_sum_basic(number):
 	try:
 		n=int(number)
 	except ValueError:
@@ -20,7 +20,13 @@ def integer_sum(number):
 	total = 0
 	for i in range (number, 0, -int(number/abs(number))):
 		total += i
+	return total
 
 
 
-
+def integer_sum(number):
+	try:
+		n=int(number)
+	except ValueError:
+		return 0 
+	return sum(range (number, 0, -int(number/abs(number))))
