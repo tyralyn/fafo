@@ -24,6 +24,7 @@ def integer_sum_basic(number):
 
 
 
+# using the sum method
 def integer_sum(number):
 	try:
 		n=int(number)

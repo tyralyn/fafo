@@ -34,6 +34,7 @@
 
 import string
 
+# manually translating
 def caesar_cipher_basic(text, n):
 	lowercase = range(ord('a'), ord('z') + 1)
 	uppercase = range(ord('A'), ord('Z') + 1)
@@ -55,6 +56,7 @@ def caesar_cipher_basic(text, n):
 			cipher+=c
 	return cipher
 
+# using disk comprehension for translation table
 def cesar_cipher_translate(text, n):
 	d_lower={ ord('a') + i: ord('a') + (i + n )%26 for i in range(0,26)}
 	d_upper={ ord('A') + i: ord('A') + (i + n )%26 for i in range(0,26)}
@@ -63,6 +65,7 @@ def cesar_cipher_translate(text, n):
 
 	return text.translate(d)
 
+# using string's ascii builtins
 def caesar_cipher(text, n):
 	lowercase = string.ascii_lowercase
 	uppercase = string.ascii_uppercase
