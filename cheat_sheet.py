@@ -8,15 +8,34 @@ def collections():
 	l_doubled = [item * 2 for item in l]
 	l_even = [item for item in l if item % 2 == 0]
 
-	# dict comprehension
+	# list-of-tuple comprehension from list
+	l_tuple_quadruple = [(x, 4*x) for x in l]
+
+	# dict comprehension from list
 	d_doubled = {item: 2*item for item in l}
+
+	# dict comprehension from dict
+	d_strings = dict(zip(l, l_strings))
+	d_strings_odd = { k:v for k,v in d_strings.items() if k%2 ==1}
+	d_strings_short = { k:v for k,v in d_strings.items() if len(v) < 4}
 
 	# set comprehension
 	s = set(l + [3, 3])
 
+	# combining two dictionaries
+	d1 = ...
+	d2 = ...
+	d = {**d1, **d2}
+	d |= d2
+	d = dict(d1, **d2) # only if keys of d2 are strings for some reason
+
 	# zipping -- returns zip object
 	d_strings = dict(zip(l, l_strings))
 	t_strings = list(zip(l, l_strings))
+
+	# converting dict into list of tuples
+	l_tuples = [item for item in d_strings.items()]
+	l_tuples = list(d_strings.items())
 
 	# unzipping
 	k, v = zip(*list(t_strings))
@@ -32,6 +51,10 @@ def collections():
 	#from functools import reduce
 	sum_l = reduce(lambda a,b:a+b,l)
 
+	# get max dict element
+	max(d, key=d.get) #aka max(d, key=lambda k: d.get(k))
+	max(d.items(), key=lambda k: k[1])
+	
 # file IO
 def file_IO():
 
@@ -155,6 +178,87 @@ def string_regex():
     print(re.findall(re.compile("[a-z]{3,5}"), log_line))
  	# find all matches, return as iterator through match objs
     print(re.finditer(re.compile("[a-z]{3,5}"), log_line))
+
+
+def bytes():
+	firstname='green bay'
+	lastname='P@ck3r5'
+
+	# turn a string into bytes
+	firstname.encode()
+
+# simple string stuff
+def string_utilities():
+	firstname='green bay'
+	lastname='P@ck3r5'
+
+	# case
+	firstname.capitalize()
+	firstname.casefold()
+	firstname.lower()
+	firstname.upper()
+	firstname.title()
+
+	# contents?
+	firstname.count()
+	firstname.find()
+	firstname.rfind() # find the last
+	firstname.index() # same as find but with error
+	firstname.rindex()
+	re.findall("y", firstname)
+	firstname.startswith("gr")
+	firstname.endswith("bay")
+
+	# boolean checks types of characters
+	lastname.isalpha()
+	lastname.isascii()
+	lastname.isdigit()
+	lastname.isnumeric()
+	lastname.isidentifier()
+	lastname.iskeyword()
+	lastname.islower()
+	lastname.isprintable()
+	lastname.isspace()
+	lastname.istitle()
+	lastname.isupper()
+
+	# splits / removal
+	firstname.lstrip("erg")        #'n Bay'
+	firstname.rstrip("aByY")       #'green '
+	firstname.removeprefix("gre")  #'en Bay'
+	firstname.removesuffix("ay")
+	firstname.partition("n")       # ('gree', 'n', ' Bay')
+
+	firstname.splitlines()
+
+	firstname.replace("e", "E")    #'grEEn Bay'
+
+	# alphabetizing
+	sorted(firstname)
+	max(firstname)
+	min(firstname)
+
+def string_constants():
+	string.ascii_letters
+	string.ascii_lowercase
+	string.ascii_uppercase
+	string.digits
+	string.hexdigits
+	string.octdigits
+	string.punctuation
+	string.isprintable
+	string.whitespace
+
+def integer_utilities():
+	# convert to binary
+	bin(5)
+
+	# convert to hex
+	hex(22)
+
+	# convert to decimal
+	int("0xff", 16)
+	int("0b10101", 2)
 
 
 
