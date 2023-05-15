@@ -19,12 +19,6 @@ class Node:
 	def add_adjacencies(self, nodes):
 		self.adjacencies |= nodes
 
-	def untouch(self):
-		self.touched = False
-
-def untouch(node):
-	node.untouch()
-
 def depth_first(node, visit_func=print):
 	if not node: 
 		return
@@ -71,11 +65,19 @@ class ConnectedGraph():
 		breadth_first(self.node, lambda x: bf.append(x.id))
 		return ", ".join(map(str, bf))
 
-	def 
+	def BF(self):
+		breadth_first(g.node)
+
+	def DF(self):
+		depth_first(g.node)
+
+
+	#def shortest_path(self, src_node, dest_node):
 
 
 g = ConnectedGraph()
 
+# g.BF() or g.DF(), and then g.reset() after
 # to print basic info on a node's adj's adj
 # [print(adj) for adj in g.adjacencies]
 
