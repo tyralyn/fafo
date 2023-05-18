@@ -54,7 +54,9 @@ def collections():
 	# get max dict element
 	max(d, key=d.get) #aka max(d, key=lambda k: d.get(k))
 	max(d.items(), key=lambda k: k[1])
-	
+
+# named tuple syntax
+
 # file IO
 def file_IO():
 
@@ -260,6 +262,21 @@ def integer_utilities():
 	int("0xff", 16)
 	int("0b10101", 2)
 
+def random():
+	# import random
+	l = [1,2,3,4,5,6,7]
+
+	# get a random number in specified range
+	random.random(0,100)
+
+	# get a random item(s) from asequence
+	random.choice(l)
+	random.choices(l, 22)
+
+	# pick multiple random items from a list without repitition or dupes
+	random.sample(l, 12)
+	random.sample(range(99), 4)
+	random.sample(d1.items(), 2)
 
 
 
