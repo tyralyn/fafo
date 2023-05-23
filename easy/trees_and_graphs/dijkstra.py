@@ -1,10 +1,10 @@
 # sample implementation of dijkstras algo for shortest path
 # for undirected graph
 
-from collections import namedtuple, deque
+from collections import namedtuple, deque, defaultdict
 import random
 
-Adj = namedtuple("Adj", "node weight")
+Path = namedtuple("Path", "node weight")
 
 
 # (v1, v2, weight)
@@ -49,8 +49,8 @@ def sample_graph():
 	for v1,v2,weight in SAMPLE_GRAPH_PAIRS:
 		# since this is an undirected graph add edge to both vertices
 		#print(f"-- {nodes[v1]}, {nodes[v2]} --")
-		nodes[v1].add_adjacency(Adj(nodes[v2], weight))
-		nodes[v2].add_adjacency(Adj(nodes[v1], weight))
+		nodes[v1].add_adjacency(Path(nodes[v2], weight))
+		nodes[v2].add_adjacency(Path(nodes[v1], weight))
 
 	# return one of the nodes idk which
 	return random.choice(nodes)
@@ -79,20 +79,21 @@ def print_graph():
 
 # dijkstra is breadth first
 def dijkstra_traversal(node):
-	queue = deque([Adj(node, 0)])
+	queue = deque([Path(node, 0)])
 	# key: node, value: (distance from origin node, backpath node)
-	shortest_paths = { node: (float('inf'), None)}
+	shortest_paths = defaultdict(set)
+	shortest_paths[node] = (float('inf'), None)
 
 	while (queue):
 		current_queue_str = ", ".join(map(lambda item: str(item.node.id), queue))
-		adj = queue.pop()
+		adj = queue.popleft()
 		print(f"---- {str(adj.node)}")
 		print(f"queue: {current_queue_str}")
 		
 		if not adj.node.touched:
 			if adj.node not in shortest_paths.keys():
 				shortest_paths[adj.node]=(adj.weight, [adj.node])
-			else:
+			#else:
 
 
 			adj.node.touched = True
