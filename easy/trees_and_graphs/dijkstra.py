@@ -53,6 +53,12 @@ def sample_graph():
 		nodes[v2].add_adjacency(Path(nodes[v1], weight))
 
 	# return one of the nodes idk which
+
+	print(f"------ what are the nodes? ------")
+	for node in nodes:
+		adj_str = ", ".join(map(lambda x: f"(node {x.node.id}, weight {x.weight})", nodes[node].adjacencies))
+		print(f"node {nodes[node].id}: [{adj_str}]")
+	print(f"------ those were the nodes ------")
 	return random.choice(nodes)
 
 
@@ -79,29 +85,29 @@ def print_graph():
 
 # dijkstra is breadth first
 def dijkstra_traversal(node):
-	queue = deque([Path(node, 0)])
-	# key: node, value: (distance from origin node, backpath node)
-	shortest_paths = defaultdict(set)
-	shortest_paths[node] = (float('inf'), None)
+	queue = deque([node])
 
-	while (queue):
-		current_queue_str = ", ".join(map(lambda item: str(item.node.id), queue))
-		adj = queue.popleft()
-		print(f"---- {str(adj.node)}")
-		print(f"queue: {current_queue_str}")
-		
-		if not adj.node.touched:
-			if adj.node not in shortest_paths.keys():
-				shortest_paths[adj.node]=(adj.weight, [adj.node])
-			#else:
+	shortest_paths = defaultdict(lambda: float('inf'))
+	shortest_paths[node] = 0
 
+	while queue:
+		current_queue_str = ", ".join(map(lambda item: str(item.id), queue))
+		node = queue.popleft()
+		print("------")
+		print
 
-			adj.node.touched = True
+		if not node.touched:
+			node.touched = True
 
-		for adj in adj.node.adjacencies:
+		for adj in node.adjacencies:
+			print(f"---node {node.id} has adj {adj.node.id} with weight {adj.weight} (touched: {adj.node.touched})")
+			#print(f"currently, the shortest path to that node is {shortest_paths[adj.node]}")
+			print(node)
 			if not adj.node.touched:
-				queue.append(adj)
-
+				queue.append(adj.node)
+				shortest_paths[adj.node] = min(shortest_paths[adj.node], shortest_paths[node] + adj.weight)
+				#adj.touched = True
+			#print(f"node {node.id} has adj {adj.node.id} (touched: {adj.node.touched})")
 
 g = sample_graph()
 

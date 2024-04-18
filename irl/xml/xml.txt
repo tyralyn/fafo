@@ -1,0 +1,12 @@
+<TradingApplication>
+    <Name>trading_app_spy_1</Name>
+    <LogPath>/mnt/logs</LogPath>
+    <TradingStrategies>
+        <TradingStrategy enabled="true">
+            <Symbols>
+                <Symbol>SPY</Symbol>
+            </Symbols>
+            <Multiplier>5000</Multiplier>
+        </TradingStrategy>
+    </TradingStrategies>
+</TradingApplication>

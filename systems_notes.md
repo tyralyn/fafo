@@ -223,6 +223,8 @@ To increase network security:
 
 ### What are kernel and user space?
 
+Kernel space is reserved for running privileged kernel stuff. Userspace is where applications run. Drivers run in both depending.
+
 ## Filesystems
 
 ### What is an inode?
@@ -1322,7 +1324,7 @@ Each of these these targets has a config file listing its the dependencies neede
 
 
 
-
+## zombie 
 
 
 
