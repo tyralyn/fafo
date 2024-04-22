@@ -14,7 +14,7 @@ Push model is easier to set up and provides more control over when metrics are c
 
 Push > Pull: 
 
-* Push model works well when there are fewer, known metric sources
+* Push model works well when there are fewer, known metric sources, bc it is less likely to overwhelm the centralized monitoring system
 * Push model is easier to set up
 * Push model provides more control over when metrics are collected
 
