@@ -1,0 +1,1 @@
+# Write an algorithm such that if an element in an M x N matrix is 0, the entire row and column are set to zero
