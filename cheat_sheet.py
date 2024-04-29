@@ -1,3 +1,8 @@
+# make a shallow copy
+# import copy
+l = ['m', 's', 's', 'w']
+k = copy.copy(l)
+
 # super basic
 def super_basic():
 	# convert to string
@@ -9,7 +14,14 @@ def super_basic():
 	# join a list of chars into a string
 	s = ''.join(['a', 'l', 'p', 'h', 'a', 'b', 'e', 't']) # s = "alphabet"
 
-	# ternary operator shit? get the longest string
+	# create a list of nones of size 10 
+	l = [None]*10
+	# create a list of nones of size 4x5, but keep every row the same for some dumb reaosn
+	l = [[None] * 5] * 4
+	# should really be done with
+	Matrix = [[None for x in range(w)] for y in range(h)] 
+
+	# pick the longest between two strings
 	longest = s1 if len(s1) > len(s2) else s2
 
 	# sort array of strings by length
