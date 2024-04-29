@@ -1,5 +1,33 @@
-# collections (comprenehsions, zip, filter, map, reduce)
+# super basic
+def super_basic():
+	# convert to string
+	s = 'v'+str(8) # s = "v8"
 
+	# break a string up into list of indivdual chars
+	l = list("alphabet") # l = ['a', 'l', 'p', 'h', 'a', 'b', 'e', 't']
+
+	# join a list of chars into a string
+	s = ''.join(['a', 'l', 'p', 'h', 'a', 'b', 'e', 't']) # s = "alphabet"
+
+	# ternary operator shit? get the longest string
+	longest = s1 if len(s1) > len(s2) else s2
+
+	# sort array of strings by length
+	sorted_list = sorted(unsorted_list, key=len)
+
+
+def integer_utilities():
+	# convert to binary
+	bin(5)
+
+	# convert to hex
+	hex(22)
+
+	# convert to decimal
+	int("0xff", 16)
+	int("0b10101", 2)
+
+# collections (comprenehsions, zip, filter, map, reduce)
 def collections():
 	l = [1,2,3,4,5,6,7]
 	l_strings = ['one', 'two', 'three', 'four', 'five', 'six', 'seven']
@@ -55,7 +83,31 @@ def collections():
 	max(d, key=d.get) #aka max(d, key=lambda k: d.get(k))
 	max(d.items(), key=lambda k: k[1])
 
+
+# collections library
+# import collections as c
+def collections_lib():
+
+
+# itertools library
+# import itertools as it
+def itertools_lib
+
+# groupby -- returns an intertools groupby object
+# 
+
+
+# custom sorting
+def sort():
+
+
+
+
+
+
 # named tuple syntax
+
+
 
 # file IO
 def file_IO():
@@ -217,7 +269,7 @@ def string_utilities():
 	lastname.isdigit()
 	lastname.isnumeric()
 	lastname.isidentifier()
-	lastname.iskeyword()
+	# lastname.iskeyword()
 	lastname.islower()
 	lastname.isprintable()
 	lastname.isspace()
@@ -241,6 +293,7 @@ def string_utilities():
 	min(firstname)
 
 def string_constants():
+	# import string
 	string.ascii_letters
 	string.ascii_lowercase
 	string.ascii_uppercase
@@ -248,19 +301,9 @@ def string_constants():
 	string.hexdigits
 	string.octdigits
 	string.punctuation
-	string.isprintable
+	string.printable
 	string.whitespace
 
-def integer_utilities():
-	# convert to binary
-	bin(5)
-
-	# convert to hex
-	hex(22)
-
-	# convert to decimal
-	int("0xff", 16)
-	int("0b10101", 2)
 
 def random():
 	# import random
