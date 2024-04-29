@@ -5,18 +5,20 @@
 
 
 def stringCompression(s):
-	result=s[0]
-	cur=s[0]
-	count=1
+	if not s:
+		return s
+	result = ""
+	last_char = ''
 	for ch in s:
-		if ch==cur:
-			count+=1
-		else:
-			result+=str(count)
-			count=1
-			cur=ch
-	result+=ch+str(count)
+		if ch == last_char:
+			result = result[:-1] + str(int(result[-1]) + 1)
+		if ch !=last_char:
+			result += ch + '1'
+			last_char = ch
+
 	return result
 
 
-print(stringCompression("bbaaaaa jk."))
+print(stringCompression("bbbaaaaa jk."))
+print(stringCompression(""))
+print(stringCompression("abcdefg"))
