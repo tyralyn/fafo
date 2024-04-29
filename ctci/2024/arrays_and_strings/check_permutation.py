@@ -6,6 +6,8 @@
 # 
 # question: are two of the same string considerd to be permutation
 #
+# question: what about cases? is an uppercase A considered to be the same WRT permutations as a lowercase a?
+#
 # inputs: "abcdefg", "eabcdgf"
 # output: True
 #
@@ -15,11 +17,12 @@
 # TODO: check input validity, for spaces, etc.
 
 def checkPermutation(s1, s2):
-	print(f'\n"{s1}"", "{s2}"')
-	return (sorted(s1) == sorted(s2))
+	print(f'\n"{s1.casefold()}"", "{s2.casefold()}"')
+	return (sorted(s1.casefold()) == sorted(s2.casefold()))
 
 print(checkPermutation("blackout", "outblack"))
 print(checkPermutation("hello", "hello"))
 print(checkPermutation("blackout", "black out"))
 print(checkPermutation("hello", "goodbye"))
 
+print(checkPermutation("HeLLo", "ohell"))
