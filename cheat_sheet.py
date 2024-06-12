@@ -99,6 +99,9 @@ def collections():
 # collections library
 # import collections as c
 def collections_lib():
+	# convert list to a frequency table
+	tbl = c.Counter(l)
+	tbl = {i:l.count(i) for i in l}
 
 
 # itertools library
@@ -234,6 +237,9 @@ def string_regex():
 
 	p = re.compile(regex)
 
+	# split string on multiplke delimiters (e.g. the letters in "delimiters")
+	print(re.split("d|e|l|i|m|i|t|e|r|s", log_line))
+
 	# find exact match
 	print(re.match(p, log_line).group())
 
@@ -332,6 +338,7 @@ def random():
 	random.sample(l, 12)
 	random.sample(range(99), 4)
 	random.sample(d1.items(), 2)
+
 
 
 
