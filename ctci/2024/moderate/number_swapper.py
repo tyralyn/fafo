@@ -19,3 +19,5 @@
 #
 #
 # apparently u can do this with XOR as well but idc about bits
+#
+# i think in python u could just do a,b = b,a.....
